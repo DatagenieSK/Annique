@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const handleScrollAnimation = () => {
         scrollElements.forEach((el) => {
-            if (elementInView(el, 1.15)) { // Slightly earlier trigger for a smoother feel
+            if (elementInView(el, 1.15)) { 
                 displayScrollElement(el);
             }
         })
