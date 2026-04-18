@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. Navbar Scroll Effect
+    // Navbar Background on Scroll
     const navbar = document.getElementById('navbar');
     
     window.addEventListener('scroll', () => {
@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 2. Scroll Reveal Animations
-    // This looks for any element with the class 'animate-on-scroll'
+    // Scroll Reveal Animation Logic
     const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
     const elementInView = (el, dividend = 1) => {
@@ -29,14 +28,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const handleScrollAnimation = () => {
         scrollElements.forEach((el) => {
-            // Trigger animation when element is 80% into the viewport
-            if (elementInView(el, 1.25)) {
+            if (elementInView(el, 1.15)) { // Slightly earlier trigger for a smoother feel
                 displayScrollElement(el);
             }
         })
     }
 
-    // Trigger once on load in case elements are already in view
+    // Trigger on load
     handleScrollAnimation();
 
     // Trigger on scroll
