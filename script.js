@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Navbar Background on Scroll
+    // 1. Navbar padding effect on scroll
     const navbar = document.getElementById('navbar');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+            navbar.style.padding = "15px 40px";
+            navbar.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
         } else {
-            navbar.classList.remove('scrolled');
+            navbar.style.padding = "20px 40px";
+            navbar.style.boxShadow = "none";
         }
     });
 
-    // Scroll Reveal Animation Logic
+    // 2. Intersection Observer for Scroll Animations
     const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
     const elementInView = (el, dividend = 1) => {
@@ -28,16 +30,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const handleScrollAnimation = () => {
         scrollElements.forEach((el) => {
-            if (elementInView(el, 1.15)) { 
+            if (elementInView(el, 1.2)) {
                 displayScrollElement(el);
             }
         })
     }
 
-    // Trigger on load
+    // Trigger animations on initial load
     handleScrollAnimation();
 
-    // Trigger on scroll
+    // Trigger animations on scroll
     window.addEventListener('scroll', () => {
         handleScrollAnimation();
     });
